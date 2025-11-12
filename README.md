@@ -9,6 +9,14 @@ JCode Watcher는 [JCode 플랫폼](https://jcode.jbnu.ac.kr)에서 학습자들�
 - 과제 수행 과정에서의 시행착오와 문제 해결 패턴 분석
 - 학습 분석 및 이상 행위 탐지를 위한 행동 데이터 수집
 
+## 빠른 시작
+
+- [Backend 개발](packages/backend/README.md)
+- [Filemon 개발](packages/filemon/README.md)
+- [Procmon 개발](packages/procmon/README.md)
+- [Kubernetes 배포](deployment.md)
+
+
 ## 아키텍처
 
 ### 시스템 구성
@@ -44,9 +52,9 @@ JCode Watcher는 Kubernetes DaemonSet 패턴으로 설계된 분산 모니터링
               │    Backend (Analytics API)  │
               │  ┌─────────────────────────┐ │
               │  │ FastAPI + SQLite        │ │
-              │  │ - 코드 스냅샷 저장      │ │
-              │  │ - 학습 패턴 분석        │ │
-              │  │ - 메트릭 수집           │ │
+              │  │ - 코드 스냅샷 저장        │ │
+              │  │ - 학습 패턴 분석          │ │
+              │  │ - 메트릭 수집             │ │
               │  └─────────────────────────┘ │
               └─────────────────────────────┘
 ```     
@@ -107,23 +115,7 @@ FastAPI 기반으로 모니터링 데이터를 수집, 저장, 분석하는 중�
 - RESTful API 및 자동 문서화 (/docs)
 
 
-## 기술 스택
-
-| 구분 | 기술 | 담당 컴포넌트 |
-|------|------|-------------|
-| **파일감시** | inotify/Watchdog | filemon |
-| **프로세스감시** | eBPF/bcc | procmon |
-| **API서버** | FastAPI | backend |
-| **데이터베이스** | SQLite/SQLModel | backend |
-| **메트릭** | Prometheus | 공통 |
-| **컨테이너** | Docker, Kubernetes | 배포환경 |
-
-
 ## 관련 프로젝트
 
-### 기존 프로젝트
-- **[Watcher](https://github.com/JBNU-JEduTools/Watcher)** - 클라이언트-서버 기반 코드 변경 이력 추적 시스템 (C/Shell 구현)
-
-### JCode 플랫폼
 - **[JCode-Frontend](https://github.com/JBNU-JEduTools/JCode-Frontend)** - JCode 플랫폼 프론트엔드
 - **[JCode-Backend](https://github.com/JBNU-JEduTools/JCode-Backend)** - JCode 플랫폼 백엔드
